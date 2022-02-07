@@ -10,6 +10,7 @@ export const Games= ()=>{
     const [desc, setDesc]=useState("");
     const [rating, setRating]=useState("");
 
+    const [gamedata,setGameData]=useState([]);
 
     useEffect(()=>{
         Data();
@@ -19,7 +20,7 @@ export const Games= ()=>{
         fetch("http://localhost:3001/games")
         .then((d)=>{d.json()})
         .then((res)=>{
-           console.log(res);
+           setGameData(res);
         })
     }
 
@@ -28,29 +29,36 @@ export const Games= ()=>{
         <form id="addgame">
         
         <input placeholder="Name" type="text" required={true} onChange={(txt)=>{
-           setName(txt.target.value);
+
+           setName(txt.target.value)
         }}/>
         <input placeholder="Author" type="text"  required={true} onChange={(txt)=>{
-           setAuthor(txt.target.value);
+
+            setAuthor(txt.target.value)
         }}/>
         <input placeholder="Tags" type="text" required={true} onChange={(txt)=>{
-           setTags(txt.target.value);
+
+            setTags(txt.target.value)
         }}/>
         <input placeholder="Price" type="number" required={true} onChange={(txt)=>{
-           setPrice(txt.target.value);
+
+            setPrice(txt.target.value)
         }}/>
         <label>For kids<input type="checkbox" required={true} onChange={(txt)=>{
-           if(txt.target.value=="on"){
-               setKids(true);
-           }
+
+            if(txt.target.value=="on"){
+                  setKids(true);
+            }
         }}/></label>
         <input placeholder="Description" type="text" required={true} onChange={(txt)=>{
-           setDesc(txt.target.value);
+
+            setDesc(txt.target.value)
         }}/>
         <label>Rating</label>
 
         <select  required={true}  onChange={(txt)=>{
-           setRating(txt.target.value);
+
+            setRating(txt.target.value)
         }}> 
             <option id="one">1</option>
             <option id="Two">2</option>
@@ -61,8 +69,8 @@ export const Games= ()=>{
         <input type="submit"
         onClick={(e)=>{
             e.preventDefault();
-            const data={gamename:name, gameauthor:author, gameprice:price,gametags:tags, forkids:kids, gamedesc:desc, gamerating:rating};
-            
+            const data={gamename:name , gameauthor:author, gameprice:price,gametags:tags, forkids:kids, gamedesc:desc, gamerating:rating};
+
            fetch("http://localhost:3001/games",{
                method:"POST",
                body:JSON.stringify(data),
@@ -75,6 +83,9 @@ export const Games= ()=>{
         />
 
         </form>
+
+
+
     </div>
 
 }
