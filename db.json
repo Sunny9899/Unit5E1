@@ -9,6 +9,26 @@
       "gamedesc": "Titanfall is a series of video games that mainly feature first-person shooter games",
       "gamerating": "5",
       "id": 1
+    },
+    {
+      "gamename": "GodofWar",
+      "gameauthor": "Sony",
+      "gameprice": "230",
+      "gametags": "Gameoftheyear",
+      "forkids": true,
+      "gamedesc": "Open world game ",
+      "gamerating": "5",
+      "id": 2
+    },
+    {
+      "gamename": "WorldofWarcraft",
+      "gameauthor": "Tencent",
+      "gameprice": "2474",
+      "gametags": "War",
+      "forkids": true,
+      "gamedesc": "War game",
+      "gamerating": "3",
+      "id": 3
     }
   ]
 }
